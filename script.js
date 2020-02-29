@@ -1,2 +1,5 @@
-let func1 = () => 'Hi';
-console.log(func1);
+let screen = document.getElementById('calculator-screen');
+
+function demoDisplay() {
+    screen.style.display = '0';
+}
