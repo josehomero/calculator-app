@@ -1,5 +1,8 @@
-let screen = document.getElementById('calculator-screen');
+const screen = document.getElementById('calculator-screen');
 
-function demoDisplay() {
-    screen.style.display = '0';
+const button = document.querySelector('button');
+
+function getInputValue() {
+    var InputVal = button.value;
+    console.log(button.value);
 }
