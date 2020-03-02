@@ -2,7 +2,9 @@ const screen = document.getElementById('calculator-screen');
 
 const button = document.querySelector('button');
 
-function getInputValue() {
-    var InputVal = button.value;
-    console.log(button.value);
-}
+const button1 = document.getElementById('number-button');
+
+button1.addEventListener('click', function(e) {
+console.log(e.target.textContent);
+})
+
