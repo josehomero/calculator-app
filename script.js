@@ -4,7 +4,11 @@ const button = document.querySelector('button');
 
 const button1 = document.getElementById('number-button');
 
-button1.addEventListener('click', function(e) {
-console.log(e.target.textContent);
-})
+const calculatorButtons = document.querySelectorAll('.calculator-button');
+for(const buttons of calculatorButtons) {
+    buttons.addEventListener('click', function(e) {
+        console.log(e.target.textContent);
+    });
+}
+
 
