@@ -7,8 +7,10 @@ function calcText(value) {
 }
 
 const calculatorButtons = document.querySelectorAll('.calculator-button');
-for(const buttons of calculatorButtons).foreach(buttons => {
-    buttons.addEventListener('click', e => {
+calculatorButtons.forEach(button => {
+    button.addEventListener('click', e => {
+    
+        const one = e.button[1].value;
         console.log(1);
-    })
-}
+    });
+});
