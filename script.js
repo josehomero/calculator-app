@@ -10,7 +10,6 @@ const calculatorButtons = document.querySelectorAll('.calculator-button');
 calculatorButtons.forEach(button => {
     button.addEventListener('click', e => {
     
-        const one = e.button[1].value;
-        console.log(1);
+        console.log(e.target.value)
     });
 });
