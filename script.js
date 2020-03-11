@@ -8,8 +8,6 @@ function calcText(value) {
 const calculatorButtons = document.querySelectorAll('.calculator-button');
 calculatorButtons.forEach(button => {
     button.addEventListener('click', e => {
-    
         calcText(e.target.value);
-
     });
 });
