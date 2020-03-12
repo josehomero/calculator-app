@@ -11,3 +11,8 @@ calculatorButtons.forEach(button => {
         calcText(e.target.value);
     });
 });
+
+const clearButton = document.getElementById('ac-button');
+clearButton.addEventListener('click', function() {
+    
+});
