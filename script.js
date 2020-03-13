@@ -1,7 +1,7 @@
 const button = document.querySelector('button');
+const screen = document.getElementById('calculator-screen');
 
 function calcText(value) {
-    const screen = document.getElementById('calculator-screen');
     screen.value = value + screen.value;
 }
 
@@ -13,6 +13,8 @@ calculatorButtons.forEach(button => {
 });
 
 const clearButton = document.getElementById('ac-button');
-clearButton.addEventListener('click', function() {
-    
+clearButton.addEventListener('click', function(e) {
+    if(e.target.className === '.calculator-button') {
+        screen.innerHTML = '';
+    }
 });
