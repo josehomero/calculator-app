@@ -14,7 +14,7 @@ calculatorButtons.forEach(button => {
 
 const clearButton = document.getElementById('ac-button');
 clearButton.addEventListener('click', function(e) {
-    if(e.target.className === '.calculator-button') {
-        screen.innerHTML = '';
-    }
+if(e.target.className === 'calculator-button') {
+    screen.value = '';
+}
 });
