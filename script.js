@@ -18,3 +18,8 @@ if(e.target.className === 'calculator-button') {
     screen.value = '';
 }
 });
+
+const dotButton = document.getElementById('dot-button');
+dotButton.addEventListener('click', function(e) {
+
+});
