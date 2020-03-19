@@ -21,7 +21,7 @@ if(e.target.className === 'calculator-button') {
 
 const dotButton = document.getElementById('dot-button');
 dotButton.addEventListener('click', function(e) {
-    if(e.target.textContent.includes('.')) {
-        console.log(dotButton);
+    if(screen.value.includes('.') === false) {
+        calcText(e.target.textContent);
     }
 });
