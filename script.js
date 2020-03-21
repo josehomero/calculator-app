@@ -27,7 +27,8 @@ dotButton.addEventListener('click', function(e) {
 
 const operatorButtons = document.querySelectorAll('.operator-button');
 operatorButtons.forEach(button => {
+    const equalsbutton = document.getElementById('equals-button');
     button.addEventListener('click', e => {
-        calcText(e.target.value);
+
     });
 });
