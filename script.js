@@ -1,4 +1,3 @@
-const button = document.querySelector('button');
 const screen = document.getElementById('calculator-screen');
 
 function calcText(value) {
@@ -14,7 +13,7 @@ calculatorButtons.forEach(button => {
 
 const clearButton = document.getElementById('ac-button');
 clearButton.addEventListener('click', function(e) {
-if(e.target.className === 'calculator-button') {
+if(e.target.className === 'clear-button') {
     screen.value = '';
 }
 });
@@ -24,4 +23,11 @@ dotButton.addEventListener('click', function(e) {
     if(screen.value.includes('.') === false) {
         calcText(e.target.textContent);
     }
+});
+
+const operatorButtons = document.querySelectorAll('.operator-button');
+operatorButtons.forEach(button => {
+    button.addEventListener('click', e => {
+        calcText(e.target.value);
+    });
 });
