@@ -25,10 +25,8 @@ dotButton.addEventListener('click', function(e) {
     }
 });
 
-const operatorButtons = document.querySelectorAll('.operator-button');
-operatorButtons.forEach(button => {
-    const equalsbutton = document.getElementById('equals-button');
-    button.addEventListener('click', e => {
-
-    });
-});
+var plusButton = document.getElementById('plus-button');
+var minusButton = document.getElementById('minus-button');
+var timesButton = document.getElementById('times-button');
+var divideButton = document.getElementById('divide-button');
+var equalsButton = document.getElementById('equals-button');
