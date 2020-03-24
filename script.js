@@ -25,8 +25,13 @@ dotButton.addEventListener('click', function(e) {
     }
 });
 
-var plusButton = document.getElementById('plus-button');
-var minusButton = document.getElementById('minus-button');
-var timesButton = document.getElementById('times-button');
-var divideButton = document.getElementById('divide-button');
-var equalsButton = document.getElementById('equals-button');
+const plusButton = document.getElementById('plus-button');
+const minusButton = document.getElementById('minus-button');
+const timesButton = document.getElementById('times-button');
+const divideButton = document.getElementById('divide-button');
+
+
+const equalsButton = document.getElementById('equals-button');
+equalsButton.addEventListener('click', function(e) {
+
+})
