@@ -25,13 +25,24 @@ dotButton.addEventListener('click', function(e) {
     }
 });
 
-const plusButton = document.getElementById('plus-button');
-const minusButton = document.getElementById('minus-button');
-const timesButton = document.getElementById('times-button');
-const divideButton = document.getElementById('divide-button');
+const operatorButtons= document.querySelectorAll('.operator-button');
+operatorButtons.forEach(button => {
+    button.addEventListener('click', e => {
+        calcText(e.target.value);
+    });
+});
 
 
 const equalsButton = document.getElementById('equals-button');
 equalsButton.addEventListener('click', function(e) {
+    let firstNumber = screen.value[0]
+    
+    let secondNumber = screen.value[2]
+
+    if(screen.value.includes('+')) {
+      let sum =  (firstNumber + secondNumber)
+      return sum;
+    }
+    
 
 })
