@@ -35,14 +35,9 @@ operatorButtons.forEach(button => {
 
 const equalsButton = document.getElementById('equals-button');
 equalsButton.addEventListener('click', function(e) {
-    let firstNumber = screen.value[0]
-    
-    let secondNumber = screen.value[2]
-
-    if(screen.value.includes('+')) {
-      let sum =  (firstNumber + secondNumber)
-      return sum;
-    }
-    
-
+var num1 = screen.value[0];
+var num2 =screen.value[2];
+    var sum = num1 + num2;
+    return sum;
+    console.log(sum);
 })
