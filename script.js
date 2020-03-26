@@ -1,13 +1,20 @@
 const screen = document.getElementById('calculator-screen');
 
+let firstNumber = null;
+
 function calcText(value) {
-    screen.value = value + screen.value;
+    screen.value = value;
 }
 
 const calculatorButtons = document.querySelectorAll('.calculator-button');
 calculatorButtons.forEach(button => {
     button.addEventListener('click', e => {
-        calcText(e.target.value);
+        if (firstNumber != null) {
+            firstNumber += e.target.value;
+        } else {
+            firstNumber = e.target.value;
+        }
+        calcText(firstNumber);
     });
 });
 
@@ -39,5 +46,4 @@ var num1 = screen.value[0];
 var num2 =screen.value[2];
     var sum = num1 + num2;
     return sum;
-    console.log(sum);
 })
