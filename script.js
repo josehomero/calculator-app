@@ -1,6 +1,8 @@
 const screen = document.getElementById('calculator-screen');
 
 let firstNumber = null;
+let secondNumber = null;
+
 
 function calcText(value) {
     screen.value = value;
@@ -15,6 +17,8 @@ calculatorButtons.forEach(button => {
             firstNumber = e.target.value;
         }
         calcText(firstNumber);
+
+        if ()
     });
 });
 
@@ -39,11 +43,12 @@ operatorButtons.forEach(button => {
     });
 });
 
+function arithmatic() {
+
+
+};
 
 const equalsButton = document.getElementById('equals-button');
 equalsButton.addEventListener('click', function(e) {
-var num1 = screen.value[0];
-var num2 =screen.value[2];
-    var sum = num1 + num2;
-    return sum;
+
 })
