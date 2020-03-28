@@ -18,7 +18,17 @@ calculatorButtons.forEach(button => {
         }
         calcText(firstNumber);
 
-        if ()
+        if(e.target.className === 'operator-button') {
+            screen.value = '';
+        }
+
+        if (secondNumber != null) {
+            secondNumber += e.target.value;
+        } else {
+            secondNumber = e.target.value;
+        }
+        calcText(secondNumber);
+        
     });
 });
 
@@ -43,12 +53,11 @@ operatorButtons.forEach(button => {
     });
 });
 
-function arithmatic() {
-
-
-};
-
 const equalsButton = document.getElementById('equals-button');
 equalsButton.addEventListener('click', function(e) {
-
+//switch(e.value) {
+   // case 1: +
+        
+    
+//}
 })
