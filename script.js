@@ -18,7 +18,7 @@ calculatorButtons.forEach(button => {
         }
         calcText(firstNumber);
 
-        if (e.target.className === 'operator-button') {
+        if (screen.value.includes('-', '+', '*', '/') === '') {
             screen.value = '';
         }
 
@@ -52,6 +52,7 @@ operatorButtons.forEach(button => {
         calcText(e.target.value);
     });
 });
+
 
 const equalsButton = document.getElementById('equals-button');
 equalsButton.addEventListener('click', function (e) {
