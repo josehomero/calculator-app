@@ -18,7 +18,7 @@ calculatorButtons.forEach(button => {
         }
         calcText(firstNumber);
 
-        if(e.target.className === 'operator-button') {
+        if (e.target.className === 'operator-button') {
             screen.value = '';
         }
 
@@ -28,25 +28,25 @@ calculatorButtons.forEach(button => {
             secondNumber = e.target.value;
         }
         calcText(secondNumber);
-        
+
     });
 });
 
 const clearButton = document.getElementById('ac-button');
-clearButton.addEventListener('click', function(e) {
-if(e.target.className === 'clear-button') {
-    screen.value = '';
-}
+clearButton.addEventListener('click', function (e) {
+    if (e.target.className === 'clear-button') {
+        screen.value = '';
+    }
 });
 
 const dotButton = document.getElementById('dot-button');
-dotButton.addEventListener('click', function(e) {
-    if(screen.value.includes('.') === false) {
+dotButton.addEventListener('click', function (e) {
+    if (screen.value.includes('.') === false) {
         calcText(e.target.textContent);
     }
 });
 
-const operatorButtons= document.querySelectorAll('.operator-button');
+const operatorButtons = document.querySelectorAll('.operator-button');
 operatorButtons.forEach(button => {
     button.addEventListener('click', e => {
         calcText(e.target.value);
@@ -54,10 +54,11 @@ operatorButtons.forEach(button => {
 });
 
 const equalsButton = document.getElementById('equals-button');
-equalsButton.addEventListener('click', function(e) {
-//switch(e.value) {
-   // case 1: +
-        
-    
-//}
+equalsButton.addEventListener('click', function (e) {
+var add = document.getElementById('plus-button');
+    add.addEventListener('click', function(e) {
+        var sum = firstNumber + secondNumber;
+        return sum;
+        calcText(sum);
+    })
 })
