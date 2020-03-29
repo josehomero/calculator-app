@@ -2,7 +2,7 @@ const screen = document.getElementById('calculator-screen');
 
 let firstNumber = null;
 let secondNumber = null;
-
+let operator = null;
 
 function calcText(value) {
     screen.value = value;
@@ -17,10 +17,6 @@ calculatorButtons.forEach(button => {
             firstNumber = e.target.value;
         }
         calcText(firstNumber);
-
-        if (screen.value.includes('-', '+', '*', '/') === '') {
-            screen.value = '';
-        }
 
         if (secondNumber != null) {
             secondNumber += e.target.value;
@@ -49,7 +45,9 @@ dotButton.addEventListener('click', function (e) {
 const operatorButtons = document.querySelectorAll('.operator-button');
 operatorButtons.forEach(button => {
     button.addEventListener('click', e => {
-        calcText(e.target.value);
+            operator = e.target.value;
+        
+        console.log(operator);
     });
 });
 
