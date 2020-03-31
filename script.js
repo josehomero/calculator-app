@@ -21,14 +21,12 @@ calculatorButtons.forEach(button => {
         //So I'm trying to make it so when one of the operator buttons
         // is clicked that it starts to store the numbers in the
         //secondNumber variable
-        if (operator != null) {
-            secondNumber=== e.target.value;
-        }
-
-        if (secondNumber != null) {
-            secondNumber += e.target.value;
+        //if !one
+        if (!firstNumber) {
+            firstNumber= e.target.value;
         } else {
             secondNumber = e.target.value;
+            console.log(secondNumber);
         }
         calcText(secondNumber);
 
