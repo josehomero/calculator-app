@@ -18,6 +18,13 @@ calculatorButtons.forEach(button => {
         }
         calcText(firstNumber);
 
+        //So I'm trying to make it so when one of the operator buttons
+        // is clicked that it starts to store the numbers in the
+        //secondNumber variable
+        if (operator != null) {
+            secondNumber=== e.target.value;
+        }
+
         if (secondNumber != null) {
             secondNumber += e.target.value;
         } else {
@@ -45,9 +52,8 @@ dotButton.addEventListener('click', function (e) {
 const operatorButtons = document.querySelectorAll('.operator-button');
 operatorButtons.forEach(button => {
     button.addEventListener('click', e => {
-            operator = e.target.value;
+        operator = e.target.value;
         
-        console.log(operator);
     });
 });
 
