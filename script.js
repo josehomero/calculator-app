@@ -3,6 +3,7 @@ const screen = document.getElementById('calculator-screen');
 let firstNumber = null;
 let secondNumber = null;
 let operator = null;
+let answer = null;
 
 function calcText(value) {
     screen.value = value;
@@ -16,18 +17,15 @@ calculatorButtons.forEach(button => {
         } else {
             firstNumber = e.target.value;
         }
-        calcText(firstNumber);
+        
 
-        //So I'm trying to make it so when one of the operator buttons
-        // is clicked that it starts to store the numbers in the
-        //secondNumber variable
-        //if !one
         if (!firstNumber) {
-            firstNumber= e.target.value;
+            firstNumber = e.target.value;
         } else {
             secondNumber = e.target.value;
             console.log(secondNumber);
         }
+        calcText(firstNumber);
         calcText(secondNumber);
 
     });
@@ -51,9 +49,24 @@ const operatorButtons = document.querySelectorAll('.operator-button');
 operatorButtons.forEach(button => {
     button.addEventListener('click', e => {
         operator = e.target.value;
-        
     });
 });
+
+const arithmatic = (num1, num2) => {
+    switch(operator){
+        case '+':
+            answer = firstNumber + secondNumber;
+            break;
+        case '-':
+            answer = firstNumber - secondNumber;
+            break;
+        case '/':
+            answer = firstNumber / secondNumber;
+            break;
+        case '*':
+            answer = firstNumber * secondNumber;    
+    }
+}
 
 
 const equalsButton = document.getElementById('equals-button');
