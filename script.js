@@ -11,19 +11,12 @@ function calcText(value) {
 
 const calculatorButtons = document.querySelectorAll('.calculator-button');
 calculatorButtons.forEach(button => {
-    button.addEventListener('click', e => {
-        if (firstNumber != null) {
-            firstNumber += e.target.value;
-        } else {
-            firstNumber = e.target.value;
-        }
-        
-
-        if (!firstNumber) {
-            firstNumber = e.target.value;
-        } else {
+    button.addEventListener('click', e => {   
+//! makes firstNumber false so secondNumber can be declared
+        if(firstNumber=== null) {
+            firstNumber = e.target.valu;
+        } if else (firstNumber !== null) {
             secondNumber = e.target.value;
-            console.log(secondNumber);
         }
         calcText(firstNumber);
         calcText(secondNumber);
@@ -55,16 +48,16 @@ operatorButtons.forEach(button => {
 const arithmatic = (num1, num2) => {
     switch(operator){
         case '+':
-            answer = firstNumber + secondNumber;
+            answer = parseInt(firstNumber) + parseInt(secondNumber);
             break;
         case '-':
-            answer = firstNumber - secondNumber;
+            answer = parseInt(firstNumber) - parseInt(secondNumber);
             break;
         case '/':
-            answer = firstNumber / secondNumber;
+            answer = parseInt(firstNumber) / parseInt(secondNumber);
             break;
         case '*':
-            answer = firstNumber * secondNumber;    
+            answer = parseInt(firstNumber) * parseInt(secondNumber);    
     }
 }
 
@@ -73,8 +66,6 @@ const equalsButton = document.getElementById('equals-button');
 equalsButton.addEventListener('click', function (e) {
 var add = document.getElementById('plus-button');
     add.addEventListener('click', function(e) {
-        var sum = firstNumber + secondNumber;
-        return sum;
-        calcText(sum);
+
     })
 })
