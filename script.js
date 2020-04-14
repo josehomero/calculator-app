@@ -43,7 +43,8 @@ const operatorButtons = document.querySelectorAll('.operator-button');
 operatorButtons.forEach(button => {
     button.addEventListener('click', e => {
         if ( firstNumber !== null) {
-            operator = e.target.textConetent;
+            operator = e.target.value;
+            console.log(operator);
             secondNumber = currentNumber;
         }
         currentNumber = null;
@@ -64,6 +65,7 @@ const arithmatic = (num1, num2) => {
         case '*':
             answer = parseInt(firstNumber) * parseInt(secondNumber);    
     }
+    return answer;
 }
 
 
