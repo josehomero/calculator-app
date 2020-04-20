@@ -15,10 +15,14 @@ calculatorButtons.forEach(button => {
     button.addEventListener('click', e => {   
         if (currentNumber === null) {
             currentNumber = e.target.value;
-            firstNumber = currentNumber;
         } else {
             currentNumber += e.target.value;
+        }
+
+        if(operator === null) {
             firstNumber = currentNumber;
+        } else {
+            secondNumber = currentNumber;
         }
 
         calcText(currentNumber);
@@ -35,7 +39,7 @@ clearButton.addEventListener('click', function (e) {
 const dotButton = document.getElementById('dot-button');
 dotButton.addEventListener('click', function (e) {
     if (screen.value.includes('.') === false) {
-        calcText(e.target.textContent);
+        calcText(e.target.value);
     }
 });
 
@@ -71,7 +75,6 @@ const arithmatic = (num1, num2) => {
 
 const equalsButton = document.getElementById('equals-button');
 equalsButton.addEventListener('click', function (e) {
-var add = document.getElementById('plus-button');
 const result = arithmatic(firstNumber, secondNumber)
 calcText(result);
 })
