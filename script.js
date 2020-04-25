@@ -8,7 +8,6 @@ let answer = null;
 
 function calcText(value) {
     screen.value = value;
-    console.log(screen.value);
 }
 
 const calculatorButtons = document.querySelectorAll('.calculator-button');
@@ -34,13 +33,19 @@ const clearButton = document.getElementById('ac-button');
 clearButton.addEventListener('click', function (e) {
     if (e.target.className === 'clear-button') {
         screen.value = '';
+        currentNumber = null;
+        secondNumber = null;
     }
 });
 
 const dotButton = document.getElementById('dot-button');
 dotButton.addEventListener('click', function (e) {
-    if (screen.value.includes('.') === false) {
-        calcText(e.target.value);
+    if (firstNumber === null || secondNumber === null) {
+        firstNumber = '.';
+        //secondNumber = '.';
+        calcText(firstNumber);
+        console.log(firstNumber);
+
     }
 });
 
