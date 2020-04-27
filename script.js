@@ -12,14 +12,14 @@ function calcText(value) {
 
 const calculatorButtons = document.querySelectorAll('.calculator-button');
 calculatorButtons.forEach(button => {
-    button.addEventListener('click', e => {   
+    button.addEventListener('click', e => {
         if (currentNumber === null) {
             currentNumber = e.target.value;
         } else {
             currentNumber += e.target.value;
         }
 
-        if(operator === null) {
+        if (operator === null) {
             firstNumber = currentNumber;
         } else {
             secondNumber = currentNumber;
@@ -32,30 +32,40 @@ calculatorButtons.forEach(button => {
 const clearButton = document.getElementById('ac-button');
 clearButton.addEventListener('click', function (e) {
     if (e.target.className === 'clear-button') {
-        screen.value = '';
+       while (currentNumber > 0) {
+           currentNumber--;
+       }
         currentNumber = null;
-        secondNumber = null;
+        calcText(currentNumber);
     }
 });
 
 const dotButton = document.getElementById('dot-button');
 dotButton.addEventListener('click', function (e) {
-    if (firstNumber === null || secondNumber === null) {
-        firstNumber = '.';
-        //secondNumber = '.';
-        calcText(firstNumber);
-        console.log(firstNumber);
-
+    let dot = e.target.value;
+    let text = '';
+    text += '.';
+    console.log(text);
+    console.log(firstNumber);
+    if (operator === null) {
+        if (firstNumber !== null) {
+            firstNumber += dot;
+            calcText(firstNumber);
+        } else {
+            firstNumber = '.';
+            firstNumber += firstNumber;
+            calcText(firstNumber);
+        }
     }
 });
 
 const operatorButtons = document.querySelectorAll('.operator-button');
 operatorButtons.forEach(button => {
     button.addEventListener('click', e => {
-        if ( operator === null) {
+        if (operator === null) {
             operator = e.target.value;
             console.log(operator);
-        } else if(operator !== null) {
+        } else if (operator !== null) {
             let result = arithmatic();
             calcText(result);
             operator = e.target.value;
@@ -67,7 +77,7 @@ operatorButtons.forEach(button => {
 });
 
 const arithmatic = () => {
-    switch(operator){
+    switch (operator) {
         case '+':
             answer = parseInt(firstNumber) + parseInt(secondNumber);
             break;
@@ -81,7 +91,7 @@ const arithmatic = () => {
             answer = parseInt(firstNumber) * parseInt(secondNumber);
             break;
         default:
-            console    
+            console.log('No operator');
     }
     return answer;
 }
@@ -89,6 +99,6 @@ const arithmatic = () => {
 
 const equalsButton = document.getElementById('equals-button');
 equalsButton.addEventListener('click', function (e) {
-const result = arithmatic()
-calcText(result);
+    const result = arithmatic()
+    calcText(result);
 })
