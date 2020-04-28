@@ -51,16 +51,17 @@ dotButton.addEventListener('click', function (e) {
             calcText(firstNumber);
         } else {
             currentNumber = '.';
-            currentNumber +=
-            calcText(currentNumber);
+            firstNumber = currentNumber;
+            calcText(firstNumber);
         }
     } else {
-        if (secondNumber !== null) {
-            secondNumber += dot;
+        if (currentNumber !== null) {
+            currentNumber += dot;
+            secondNumber = currentNumber;
             calcText(secondNumber);
         } else {
-            secondNumber = '.';
-            secondNumber += secondNumber;
+            currentNumber = '.';
+            secondNumber = currentNumber;
             calcText(secondNumber);
         }
     }
@@ -86,16 +87,16 @@ operatorButtons.forEach(button => {
 const arithmatic = () => {
     switch (operator) {
         case '+':
-            answer = parseInt(firstNumber) + parseInt(secondNumber);
+            answer = parseFloat(firstNumber) + parseFloat(secondNumber);
             break;
         case '-':
-            answer = parseInt(firstNumber) - parseInt(secondNumber);
+            answer = parseFloat(firstNumber) - parseFloat(secondNumber);
             break;
         case '/':
-            answer = parseInt(firstNumber) / parseInt(secondNumber);
+            answer = parseFloat(firstNumber) / parseFloat(secondNumber);
             break;
         case '*':
-            answer = parseInt(firstNumber) * parseInt(secondNumber);
+            answer = parseFloat(firstNumber) * parseFloat(secondNumber);
             break;
         default:
             console.log('No operator');
