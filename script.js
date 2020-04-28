@@ -43,18 +43,25 @@ clearButton.addEventListener('click', function (e) {
 const dotButton = document.getElementById('dot-button');
 dotButton.addEventListener('click', function (e) {
     let dot = e.target.value;
-    let text = '';
-    text += '.';
-    console.log(text);
     console.log(firstNumber);
     if (operator === null) {
-        if (firstNumber !== null) {
-            firstNumber += dot;
+        if (currentNumber !== null) {
+            currentNumber += dot;
+            firstNumber = currentNumber; 
             calcText(firstNumber);
         } else {
-            firstNumber = '.';
-            firstNumber += firstNumber;
-            calcText(firstNumber);
+            currentNumber = '.';
+            currentNumber +=
+            calcText(currentNumber);
+        }
+    } else {
+        if (secondNumber !== null) {
+            secondNumber += dot;
+            calcText(secondNumber);
+        } else {
+            secondNumber = '.';
+            secondNumber += secondNumber;
+            calcText(secondNumber);
         }
     }
 });
