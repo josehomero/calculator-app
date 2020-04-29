@@ -32,9 +32,9 @@ calculatorButtons.forEach(button => {
 const clearButton = document.getElementById('ac-button');
 clearButton.addEventListener('click', function (e) {
     if (e.target.className === 'clear-button') {
-       while (currentNumber > 0) {
-           currentNumber--;
-       }
+        while (currentNumber > 0) {
+            currentNumber--;
+        }
         currentNumber = null;
         calcText(currentNumber);
     }
@@ -44,10 +44,15 @@ const dotButton = document.getElementById('dot-button');
 dotButton.addEventListener('click', function (e) {
     let dot = e.target.value;
     console.log(firstNumber);
+
+    if (currentNumber.includes(dot)) {
+        dot = '';
+    }
+
     if (operator === null) {
         if (currentNumber !== null) {
             currentNumber += dot;
-            firstNumber = currentNumber; 
+            firstNumber = currentNumber;
             calcText(firstNumber);
         } else {
             currentNumber = '.';
@@ -72,7 +77,6 @@ operatorButtons.forEach(button => {
     button.addEventListener('click', e => {
         if (operator === null) {
             operator = e.target.value;
-            console.log(operator);
         } else if (operator !== null) {
             let result = arithmatic();
             calcText(result);
