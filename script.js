@@ -1,116 +1,94 @@
-const screen = document.getElementById('calculator-screen');
-
 let firstNumber = null;
 let secondNumber = null;
 let currentNumber = null;
 let operator = null;
-let answer = null;
-
-function calcText(value) {
-    screen.value = value;
-}
 
 const calculatorButtons = document.querySelectorAll('.calculator-button');
 calculatorButtons.forEach(button => {
     button.addEventListener('click', e => {
-        if (currentNumber === null) {
-            currentNumber = e.target.value;
-        } else {
-            currentNumber += e.target.value;
-        }
-
         if (operator === null) {
-            firstNumber = currentNumber;
+            firstNumber = setNumber(firstNumber, e.target.textContent);
+            setScreen(firstNumber);
         } else {
-            secondNumber = currentNumber;
+            secondNumber = setNumber(secondNumber, e.target.textContent);
+            setScreen(secondNumber);
         }
-
-        calcText(currentNumber);
     });
 });
 
 const clearButton = document.getElementById('ac-button');
 clearButton.addEventListener('click', function (e) {
-    if (e.target.className === 'clear-button') {
-        while (currentNumber > 0) {
-            currentNumber--;
-        }
-        currentNumber = null;
-        calcText(currentNumber);
-    }
+    firstNumber = null;
+    secondNumber = null;
+    operator = null;
+    setScreen('0');
 });
 
 const dotButton = document.getElementById('dot-button');
 dotButton.addEventListener('click', function (e) {
-    let dot = e.target.value;
-    console.log(firstNumber);
-
-    if (currentNumber.includes(dot)) {
-        dot = '';
-    }
-
     if (operator === null) {
-        if (currentNumber !== null) {
-            currentNumber += dot;
-            firstNumber = currentNumber;
-            calcText(firstNumber);
-        } else {
-            currentNumber = '.';
-            firstNumber = currentNumber;
-            calcText(firstNumber);
-        }
+        firstNumber = addDecimal(firstNumber);
+        setScreen(firstNumber);
     } else {
-        if (currentNumber !== null) {
-            currentNumber += dot;
-            secondNumber = currentNumber;
-            calcText(secondNumber);
-        } else {
-            currentNumber = '.';
-            secondNumber = currentNumber;
-            calcText(secondNumber);
-        }
+        secondNumber = addDecimal(secondNumber);
+        setScreen(secondNumber);
     }
 });
 
 const operatorButtons = document.querySelectorAll('.operator-button');
 operatorButtons.forEach(button => {
     button.addEventListener('click', e => {
-        if (operator === null) {
-            operator = e.target.value;
-        } else if (operator !== null) {
-            let result = arithmatic();
-            calcText(result);
-            operator = e.target.value;
+          if (operator !== null) {
+            let result = performArithmetic();
+            setScreen(result);
+            operator = e.target.textContent;
             firstNumber = result;
+            secondNumber = null;
         }
-
-        currentNumber = null;
+        operator = e.target.textContent;
     });
 });
 
-const arithmatic = () => {
+const equalsButton = document.getElementById('equals-button');
+equalsButton.addEventListener('click', function (e) {
+    setScreen(performArithmetic());
+})
+
+function setScreen(value) {
+    const screen = document.getElementById('calculator-screen');
+    screen.value = value;
+}
+
+const performArithmetic = () => {
     switch (operator) {
         case '+':
-            answer = parseFloat(firstNumber) + parseFloat(secondNumber);
-            break;
+            return parseFloat(firstNumber) + parseFloat(secondNumber);
         case '-':
-            answer = parseFloat(firstNumber) - parseFloat(secondNumber);
-            break;
+            return parseFloat(firstNumber) - parseFloat(secondNumber);
         case '/':
-            answer = parseFloat(firstNumber) / parseFloat(secondNumber);
-            break;
+            return parseFloat(firstNumber) / parseFloat(secondNumber);
         case '*':
-            answer = parseFloat(firstNumber) * parseFloat(secondNumber);
-            break;
+            return parseFloat(firstNumber) * parseFloat(secondNumber);
         default:
             console.log('No operator');
     }
-    return answer;
 }
 
+function setNumber(numberToModify, number) {
+    if (numberToModify === null) {
+        return number;
+    } else {
+        return numberToModify + number;
+    }
+}
 
-const equalsButton = document.getElementById('equals-button');
-equalsButton.addEventListener('click', function (e) {
-    const result = arithmatic()
-    calcText(result);
-})
+function addDecimal(number) {
+    if (number.includes('.')) {
+        return number
+    }
+    if (number !== null) {
+        return number + '.'
+    } else {
+        return '.';
+    }
+}

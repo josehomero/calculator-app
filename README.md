@@ -2,7 +2,7 @@
 
 <br>
 
-My Calculator!
+This is a calculator written in JavaScript and HTML/CSS.
 
 Check it out https://josehomero.github.io/calculator-app/
 
@@ -10,7 +10,7 @@ Check it out https://josehomero.github.io/calculator-app/
 
 ## Summary
 
-This project stretched me in so many ways in my knowledge of JavaScript. I learned how to properly use case studies and got really great understanding on using if statements.
+This project stretched me in so many ways in my knowledge of JavaScript. I learned how to properly use test cases and got really great understanding on using if statements.
 
 This project was really challenging in so many ways but by pushing through I have gained a lot of confidence and knowledge in JavaScript.
 
